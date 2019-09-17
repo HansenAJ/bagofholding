@@ -97,8 +97,8 @@ const getAllItems = (ownBagID) => { return ItemCollection.find({ownBagID: ownBag
 const getWealth = (ownBagID) => { return WealthCollection.find({ownBagID: ownBagID})}
 
 const addParty = (newParty) => { return PartyCollection.create(newParty)}
-const addPlayer = (newPlayer) => { return PlayerCollection.insertMany([newPlayer])}
-const addItem = (newItem) => { return ItemCollection.insertMany([newItem])}
+const addPlayer = (newPlayer) => { return PlayerCollection.create(newPlayer)}
+const addItem = (newItem) => { return ItemCollection.create(newItem)}
 const addWallet= (newWallet) => { return WealthCollection.create( {ownBagID: newWallet._id}) }
 const addBag = (newBag) => { return BagCollection.create( {partyID: newBag._id}) }
 //const updateWealth
