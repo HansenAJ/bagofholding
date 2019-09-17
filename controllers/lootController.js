@@ -42,8 +42,12 @@ lootRouter.get('/', (req, res) => {
 
 lootRouter.post('/addparty', (req, res) => {
   lootApi.addParty(req.body).then((newParty) => {
-    lootApi.addBag(newParty._id).then((newBag) => {
-      lootApi.addWallet(newBag._id).then(() => {
+    console.log("New party = " + newParty)
+    console.log("New party.id = " + newParty.id)
+    lootApi.addBag(newParty).then((newBag) => {
+      console.log("New bag = " + newBag)
+      console.log("New bag.id = " + newBag.id)
+      lootApi.addWallet(newBag).then(() => {
         res.send(newParty)
       })
     })

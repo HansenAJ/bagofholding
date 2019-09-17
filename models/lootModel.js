@@ -28,6 +28,7 @@ const PlayerSchema = new mongoose.Schema({
 })
 
 const BagSchema = new mongoose.Schema({
+  partyID: String,
   name: {
     type: String,
     default: 'Bag Name'
@@ -35,8 +36,7 @@ const BagSchema = new mongoose.Schema({
   picture:{
     type: String,
     default: 'Bag.jpg'
-  },
-  partyID: String
+  }
 })
 
 const ItemSchema = new mongoose.Schema({
@@ -96,11 +96,11 @@ const getItem = (itemID) => { return ItemCollection.findById(itemID)}
 const getAllItems = (ownBagID) => { return ItemCollection.find({ownBagID: ownBagID})}
 const getWealth = (ownBagID) => { return WealthCollection.find({ownBagID: ownBagID})}
 
-const addParty = (newParty) => { return PartyCollection.insertMany([newParty])}
+const addParty = (newParty) => { return PartyCollection.create(newParty)}
 const addPlayer = (newPlayer) => { return PlayerCollection.insertMany([newPlayer])}
 const addItem = (newItem) => { return ItemCollection.insertMany([newItem])}
-const addWallet= (newWallet) => { return WealthCollection.create( {ownBagID: newWallet}) }
-const addBag = (newBag) => { return BagCollection.create({ownBagID: newBag})}
+const addWallet= (newWallet) => { return WealthCollection.create( {ownBagID: newWallet._id}) }
+const addBag = (newBag) => { return BagCollection.create( {partyID: newBag._id}) }
 //const updateWealth
 /*
 const deleteParty
