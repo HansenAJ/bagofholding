@@ -54,11 +54,26 @@ const ItemSchema = new mongoose.Schema({
 
  const WealthSchema = new mongoose.Schema({
    ownBagID: String,
-   plat: Number,
-   gold: Number,
-   elec: Number,
-   silv: Number,
-   copp: Number
+   plat: {
+     type: Number,
+     default: 1
+   },
+   gold: {
+    type: Number,
+    default: 2
+  },
+   elec: {
+    type: Number,
+    default: 3
+  },
+   silv: {
+    type: Number,
+    default: 4
+  },
+   copp: {
+    type: Number,
+    default: 5
+  }
  })
 
 const PartyCollection = mongoose.model('Party', PartySchema)
@@ -84,6 +99,8 @@ const getWealth = (ownBagID) => { return WealthCollection.find({ownBagID: ownBag
 const addParty = (newParty) => { return PartyCollection.insertMany([newParty])}
 const addPlayer = (newPlayer) => { return PlayerCollection.insertMany([newPlayer])}
 const addItem = (newItem) => { return ItemCollection.insertMany([newItem])}
+const addWallet= (newWallet) => { return WealthCollection.create( {ownBagID: newWallet}) }
+const addBag = (newBag) => { return BagCollection.create({ownBagID: newBag})}
 //const updateWealth
 /*
 const deleteParty
@@ -98,6 +115,8 @@ module.exports = {
   addParty,
   addPlayer,
   addItem,
+  addWallet,
+  addBag,
   getHelloWorldString,
   getAllParty,
   getSingleParty,

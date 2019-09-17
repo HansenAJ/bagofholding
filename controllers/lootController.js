@@ -41,8 +41,12 @@ lootRouter.get('/', (req, res) => {
 })
 
 lootRouter.post('/addparty', (req, res) => {
-  lootApi.addParty(req.body).then(newParty => {
-    res.send(newParty)
+  lootApi.addParty(req.body).then((newParty) => {
+    lootApi.addBag(newParty._id).then((newBag) => {
+      lootApi.addWallet(newBag._id).then(() => {
+        res.send(newParty)
+      })
+    })
   })
 })
 
@@ -94,6 +98,8 @@ lootRouter.get('/getallitems/:ownBagID', (req, res) => {
     res.send(singleItem)
   })
 })
+
+
 
 /* Step 6
  *
