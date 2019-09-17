@@ -14,7 +14,7 @@ export default class HelloWorld extends Component {
     *
     */
     state = {
-        message: 'hello world'
+        message: 'this is new text'
     }
 
     /* Step 4
@@ -30,6 +30,15 @@ export default class HelloWorld extends Component {
     //             this.setState({message: res.data})
     //         })
     // }
+
+
+    // componentDidMount() {
+    //     fetch('/api/helloworld')
+    //         .then((res) => {
+    //             this.setState({message: res.data})
+    //         })
+    // }
+
 
     /* Step 5
     *  The render function manages what is shown in the browser
