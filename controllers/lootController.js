@@ -36,7 +36,7 @@ const lootRouter = express.Router()
  *
  * TODO: delete this handler; it's just a sample
  */ 
-lootRouter.get('/', (req, res) => {
+lootRouter.get('/helloworld', (req, res) => {
   res.json(lootApi.getHelloWorldString())
 })
 

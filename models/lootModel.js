@@ -27,6 +27,8 @@ const PlayerSchema = new mongoose.Schema({
   partyID : String
 })
 
+//Research ObjectID for schema
+
 const BagSchema = new mongoose.Schema({
   partyID: String,
   name: {
@@ -84,7 +86,7 @@ const WealthCollection = mongoose.model('Wealth', WealthSchema)
 
 
 function getHelloWorldString() {
-  return 'hello world edited'
+  return ['hello world edited again','another hello string']
 }
 
 const getAllParty = () => { return PartyCollection.find() }

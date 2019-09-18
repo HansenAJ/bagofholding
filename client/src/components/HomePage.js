@@ -7,8 +7,12 @@ import React, { Component } from 'react'
  */
 export default class HomePage extends Component {
 
-    state = {
-        message: 'Home Page'
+    constructor() {
+        super();
+        this.state = {
+            message: [],
+            parties: []
+        };
     }
 
     /* Step 4
@@ -25,13 +29,35 @@ export default class HomePage extends Component {
     //         })
     // }
 
+    componentDidMount() {
+        fetch('/api/helloworld')
+            .then((res) => {
+                return res.json();
+            }).then(data => {
+                console.log("hello data = " + data)
+                this.setState({message: data})
+            })
+    }
 
-    // componentDidMount() {
-    //     fetch('/api/helloworld')
-    //         .then((res) => {
-    //             this.setState({message: res.data})
-    //         })
-    // }
+      componentWillMount() {
+        console.log("Mounted")
+        fetch('/api/getallparty')
+            .then((res) => {
+                return res.json();
+            }).then(data => {
+                let partyList = data.map((data) => {
+                    return(
+                        <div>
+                            <span>Picture = {data.picture}</span>
+                            <span>Name = {data.name}</span>
+                        </div>
+                        )
+                    })
+                console.log("PartyList = " + partyList)
+                this.setState({parties: partyList})
+            })
+    }
+
 
 
     /* Step 5
@@ -41,10 +67,12 @@ export default class HomePage extends Component {
     *
     */
     render() {
+        console.log("This state is " + this.state.parties)
         return (
             <div>
                 {/* Accessing the value of message from the state object */}
                 <h1>{this.state.message}</h1>
+                <h2>{this.state.parties}</h2>
             </div>
         )
     }
