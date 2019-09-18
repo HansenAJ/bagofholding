@@ -101,6 +101,13 @@ lootRouter.get('/getallitems/:ownBagID', (req, res) => {
   })
 })
 
+lootRouter.put('/updateitem', (req, res) => {
+  lootApi.updateItem(req.body).then(updatedItem => {
+    console.log(updatedItem)
+    res.send(updatedItem)
+  })
+})
+
 
 
 /* Step 6

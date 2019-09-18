@@ -101,7 +101,8 @@ const addPlayer = (newPlayer) => { return PlayerCollection.create(newPlayer)}
 const addItem = (newItem) => { return ItemCollection.create(newItem)}
 const addWallet= (newWallet) => { return WealthCollection.create( {ownBagID: newWallet._id}) }
 const addBag = (newBag) => { return BagCollection.create( {partyID: newBag._id}) }
-//const updateWealth
+
+const updateItem = (updatedItem) => { return ItemCollection.findByIdAndUpdate(updatedItem._id, {ownBagID : updatedItem.newID})}
 /*
 const deleteParty
 const deletePlayer
@@ -125,5 +126,6 @@ module.exports = {
   getBag,
   getItem,
   getAllItems,
+  updateItem,
   getWealth
 }
