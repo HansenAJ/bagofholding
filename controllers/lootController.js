@@ -67,7 +67,7 @@ lootRouter.post('/addplayer', (req, res) => {
   lootApi.addPlayer(req.body).then((newPlayer) => {
     lootApi.addWallet(newPlayer).then(() => {
       //res.send(newPlayer)
-      res.redirect(`/api/getsingleplayer/${newPlayer._id}`)
+      res.redirect(`/playerpage/${newPlayer._id}`)
     })
   })
 })
@@ -84,9 +84,10 @@ lootRouter.get('/getsingleplayer/:playerID', (req, res) => {
   })
 })
 
-lootRouter.post('/addItem', (req, res) => {
+lootRouter.post('/additem', (req, res) => {
   lootApi.addItem(req.body).then(newItem => {
-    res.send(newItem)
+    //res.send(newItem)
+    res.redirect(`/playerpage/${newItem.ownBagID}`)
   })
 })
 

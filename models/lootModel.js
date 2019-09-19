@@ -49,8 +49,8 @@ const ItemSchema = new mongoose.Schema({
   },
   weight: Number,
   quantity: Number,
-  value: Number,
-  valType: String,
+  value: String,
+  notes: String,
   bookRef: String
  })
 

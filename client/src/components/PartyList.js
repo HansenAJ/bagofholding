@@ -7,8 +7,8 @@ import React, { Component } from 'react'
  */
 export default class PartyList extends Component {
 
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
             message: ['Party List State Message'],
             players: []
@@ -16,7 +16,7 @@ export default class PartyList extends Component {
     }
 
     componentWillMount() {
-        fetch(`/api/getallparty/${this.props.match.params.partyID}`)
+        fetch(`/api/getallplayers/${this.props.match.params.partyID}`)
             .then((res) => {
                 return res.json();
             }).then(data => {
@@ -35,6 +35,8 @@ export default class PartyList extends Component {
             })
     }
 
+    
+
 
 
     render() {
@@ -51,7 +53,7 @@ export default class PartyList extends Component {
                     <label>Upload Picture</label>
                     <input type="text" name="picture" placeholder="Direct Image Path Only" />
                     <input type="hidden" name="partyID" value={this.props.match.params.partyID} />
-                    <input type="submit" value="Add New party" />
+                    <input type="submit" value="Add New Player" />
                 </form>
             </div>
         )
