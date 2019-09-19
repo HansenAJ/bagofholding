@@ -44,7 +44,7 @@ lootRouter.post('/addparty', (req, res) => {
   lootApi.addParty(req.body).then((newParty) => {
     lootApi.addBag(newParty).then((newBag) => {
       lootApi.addWallet(newBag).then(() => {
-        res.send(newParty)
+        res.redirect('/homepage')
       })
     })
   })
@@ -66,7 +66,8 @@ lootRouter.get('/getsingleparty/:partyID', (req, res) => {
 lootRouter.post('/addplayer', (req, res) => {
   lootApi.addPlayer(req.body).then((newPlayer) => {
     lootApi.addWallet(newPlayer).then(() => {
-      res.send(newPlayer)
+      //res.send(newPlayer)
+      res.redirect(`/api/getsingleplayer/${newPlayer._id}`)
     })
   })
 })

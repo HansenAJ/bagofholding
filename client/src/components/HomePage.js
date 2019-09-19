@@ -34,13 +34,11 @@ export default class HomePage extends Component {
             .then((res) => {
                 return res.json();
             }).then(data => {
-                console.log("hello data = " + data)
                 this.setState({message: data})
             })
     }
 
       componentWillMount() {
-        console.log("Mounted")
         fetch('/api/getallparty')
             .then((res) => {
                 return res.json();
@@ -49,11 +47,13 @@ export default class HomePage extends Component {
                     return(
                         <div>
                             <span>Picture = {data.picture}</span>
-                            <span>Name = {data.name}</span>
+                            {/* <button href={"/getallplayers/" + data._id}>{data.name}</button> */}
+                            <form action={`/partylist/${data._id}`}>
+                                <input type="submit" value={data.name} />
+                            </form>
                         </div>
                         )
                     })
-                console.log("PartyList = " + partyList)
                 this.setState({parties: partyList})
             })
     }
@@ -67,12 +67,18 @@ export default class HomePage extends Component {
     *
     */
     render() {
-        console.log("This state is " + this.state.parties)
         return (
             <div>
                 {/* Accessing the value of message from the state object */}
                 <h1>{this.state.message}</h1>
                 <h2>{this.state.parties}</h2>
+                <form method = "POST" action="/api/addparty">
+                    <label>Party Name</label>
+                    <input type="text" name="name" placeholder="Murder Hobos Inc."/>
+                    <label>Upload Picture</label>
+                    <input type="text" name="picture" placeholder="Direct Image Path Only" />
+                    <input type="submit" value="Add New party" />
+                </form>
             </div>
         )
     }

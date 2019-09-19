@@ -15,9 +15,9 @@ class App extends Component{
           <Switch>
             <Route exact path="/" component={HelloWorld}/>
             <Route exact path="/homepage" component={HomePage}/>
-            <Route exact path="/partylist" component={PartyList}/>
+            <Route path="/partylist/:partyID" component={PartyList}/>
             <Route exact path="/partybag" component={PartyBag}/>
-            <Route exact path="/playerpage" component={PlayerPage}/>
+            <Route path="/playerpage/" component={PlayerPage}/>
           </Switch>
         </Router>
       </div>
