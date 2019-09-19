@@ -31,6 +31,9 @@ export default class PlayerPage extends Component {
                             <span>Value = {data.value}</span>
                             <span>BookRef = {data.bookRef}</span>
                             <span>Notes = {data.notes}</span>
+                        <form method="POST" action={`/api/deleteitem/${data._id}/${this.props.match.params.playerID}?_method=DELETE`}>
+                            <input type="submit" value="Discard Item" />
+                        </form>
                         </div>
                         )
                     })

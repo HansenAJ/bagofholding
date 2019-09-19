@@ -110,6 +110,14 @@ lootRouter.put('/updateitem', (req, res) => {
   })
 })
 
+// deleteitem/${data._id}/${this.props.match.params.playerID}?_method=DELETE`
+lootRouter.delete('/deleteitem/:itemID/:playerID', (req, res) => {
+  lootApi.deleteItem(req.params.itemID).then((itemID) => {
+    //res.send(itemID)
+    res.redirect(`/playerpage/${req.params.playerID}`)
+  })
+})
+
 
 
 /* Step 6

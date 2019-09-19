@@ -10,6 +10,7 @@
  */
 const express = require('express')
 const app = express()
+const methodOverride = require('method-override')
 
 /* Step 2
  * 
@@ -34,6 +35,8 @@ app.use(express.urlencoded({extended: true}))
  * ...to parse the body of the HTTP requests from a JSON string  
  */
 app.use(express.json())
+
+app.use(methodOverride('_method'))
 
 
 /* Step 3.c
