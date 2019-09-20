@@ -1,5 +1,6 @@
 
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 
 /* Step 2
  * Rename this class to reflect the component being created
@@ -11,7 +12,8 @@ export default class PartyList extends Component {
         super(props);
         this.state = {
             message: ['Party List State Message'],
-            players: []
+            players: [],
+            partyBag: []
         };
     }
 
@@ -35,17 +37,43 @@ export default class PartyList extends Component {
             })
     }
 
+    // componentWillMount() {
+    //     fetch(`/api/getbag/${this.props.match.params.partyID}`)
+    //     console.log(`ID is : ${this.props.match.params.partyID}`)
+    //         .then((res) => {
+    //             return res.json();
+    //         }).then(data => {
+    //             let bagList = data.map((data) => {
+    //                 return(
+    //                     <div>
+    //                         <h3>Party Loot!</h3>
+    //                         <span>Picture = {data.picture}</span>
+    //                         {/* <button href={"/getallplayers/" + data._id}>{data.name}</button> */}
+    //                         <form action={`/partybag/${data._id}`}>
+    //                             <input type="submit" value="Party Bag" />
+    //                         </form>
+    //                     </div>
+    //                     )
+    //                 })
+    //             this.setState({partyBag: bagList})
+    //         })
+    // }
+
     
 
 
 
+
     render() {
+
         return (
             <div>
                 {/* Accessing the value of message from the state object */}
                 <p>This Is Text</p>
                 <p>ID is {this.props.match.params.partyID}</p>
                 <h1>{this.state.message}</h1>
+                {/* <h2>{this.state.partyBag}</h2> */}
+                <Link to={`/partybag/${this.props.match.params.partyID}`}>Party Loot</Link>
                 <h2>{this.state.players}</h2>
                 <form method = "POST" action={"/api/addplayer/" }>
                     <label>Player Name</label>

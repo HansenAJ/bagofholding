@@ -96,7 +96,7 @@ const getSinglePlayer = (playerID) => { return PlayerCollection.findById(playerI
 const getBag = (partyID) => { return BagCollection.find({partyID: partyID})}
 const getItem = (itemID) => { return ItemCollection.findById(itemID)}
 const getAllItems = (ownBagID) => { return ItemCollection.find({ownBagID: ownBagID})}
-const getWealth = (ownBagID) => { return WealthCollection.find({ownBagID: ownBagID})}
+const getWallet = (ownBagID) => { return WealthCollection.find({ownBagID: ownBagID})}
 
 const addParty = (newParty) => { return PartyCollection.create(newParty)}
 const addPlayer = (newPlayer) => { return PlayerCollection.create(newPlayer)}
@@ -131,5 +131,5 @@ module.exports = {
   getItem,
   getAllItems,
   updateItem,
-  getWealth
+  getWallet
 }

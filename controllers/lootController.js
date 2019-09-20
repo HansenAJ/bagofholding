@@ -62,6 +62,12 @@ lootRouter.get('/getsingleparty/:partyID', (req, res) => {
   })
 })
 
+lootRouter.get('/getwallet/:playerID', (req, res) => {
+  lootApi.getWallet(req.params.playerID).then(wallet => {
+    res.send(wallet)
+  })
+})
+
 
 lootRouter.post('/addplayer', (req, res) => {
   lootApi.addPlayer(req.body).then((newPlayer) => {
@@ -91,6 +97,12 @@ lootRouter.post('/additem', (req, res) => {
   })
 })
 
+lootRouter.get('/getbag/:partyID', (req, res) => {
+  lootApi.getBag(req.params.partyID).then(partyBag => {
+    res.send(partyBag)
+  })
+})
+
 lootRouter.get('/getitem/:itemID', (req, res) => {
   lootApi.getItem(req.params.itemID).then(itemID => {
     res.send(itemID)
@@ -110,7 +122,6 @@ lootRouter.put('/updateitem', (req, res) => {
   })
 })
 
-// deleteitem/${data._id}/${this.props.match.params.playerID}?_method=DELETE`
 lootRouter.delete('/deleteitem/:itemID/:playerID', (req, res) => {
   lootApi.deleteItem(req.params.itemID).then((itemID) => {
     //res.send(itemID)

@@ -7,6 +7,7 @@ import PartyBag from './components/PartyBag.js'
 import PlayerPage from './components/PlayerPage.js'
 import './App.css';
 
+
 class App extends Component{
   render (){
     return (
