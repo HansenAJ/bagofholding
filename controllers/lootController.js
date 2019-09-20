@@ -92,8 +92,8 @@ lootRouter.get('/getsingleplayer/:playerID', (req, res) => {
 
 lootRouter.post('/additem', (req, res) => {
   lootApi.addItem(req.body).then(newItem => {
-    //res.send(newItem)
-    res.redirect(`/playerpage/${newItem.ownBagID}`)
+    res.send(newItem)
+    //res.redirect(`/playerpage/${newItem.ownBagID}`)
   })
 })
 

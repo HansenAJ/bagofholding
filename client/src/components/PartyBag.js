@@ -1,10 +1,7 @@
 
 import React, { Component } from 'react'
 
-/* Step 2
- * Rename this class to reflect the component being created
- *
- */
+
 export default class PartyBag extends Component {
 
     state = {
