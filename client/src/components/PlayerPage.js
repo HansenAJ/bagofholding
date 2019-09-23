@@ -13,6 +13,7 @@ export default class PlayerPage extends Component {
             message: ['Player State Message'],
             items: [],
             wealth: {
+                //_id: String,
                 plat: 10,
                 gold: 9,
                 elec: 8,
@@ -28,6 +29,7 @@ export default class PlayerPage extends Component {
     }
 
 AddItem = (data) => {
+    console.log("AddItem DataName: " + data.name)
     fetch("/api/additem", {
         method: 'POST', // or 'PUT'
         body: JSON.stringify(data), // data can be `string` or {object}!
@@ -43,28 +45,47 @@ AddItem = (data) => {
         fetch(`/api/getallitems/${this.props.match.params.playerID}`)
             .then(res => res.json())
             .then((res) => {
-                this.setState({items: res})
+                //console.log("Item Res json = " + res)
+                this.setState( {items: res} )
             })
             .then(() => {
                 console.log("Second Fetch Run")
                 fetch(`/api/getwallet/${this.props.match.params.playerID}`)
                 .then(resW => resW.json())
                 .then((resW) => {
-                    console.log("Resafter json = " + resW.plat)
-                    this.setState( {wealth: resW} )
+                    //console.log("Resafter json = " + resW)
+                    this.setState( {wealth: resW[0]} )
                 })
             })
     }
 
+    callbackFunction = (childData) => {
+        //this.setState( {wealth: childData} )
+        //console.log("walletid is: " + this.state.wallet[0]._id)
+        // .then((childData) => {
+            console.log("Child Dataplat: " + childData.plat)
+        fetch("/api/updatewallet", {
+            method: 'PUT', // or 'PUT'
+            body: JSON.stringify(childData), // data can be `string` or {object}!
+            headers:{
+              'Content-Type': 'application/json'
+                    }
+                }).then(() => {
+                    this.getAll()
+                })
+  }
+
     render() {
-        console.log(`Wealth Plat= ${this.state.wealth.plat}`)
+        let walletToPass = {...this.state.wealth}
+        console.log(`Parent Wealth Plat= ${this.state.wealth.plat}`)
+        console.log(`wallet Plat= ${walletToPass.plat}`)
         return (
             <div>
                 {this.state.items.map(item => (
                         <ItemDisplay item={item} playerID={this.props.match.params.playerID}/>
                 ))}
                 <AddItem addItem={this.AddItem} playerID={this.props.match.params.playerID}/>
-                <WealthDisplay wealth={this.state.wealth}/>
+                <WealthDisplay wealthSend={walletToPass} parentCallback = {this.callbackFunction}/>
             </div>
         )
     }

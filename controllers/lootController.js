@@ -122,6 +122,13 @@ lootRouter.put('/updateitem', (req, res) => {
   })
 })
 
+lootRouter.put('/updatewallet', (req, res) => {
+  lootApi.updateWallet(req.body).then(updatedWallet => {
+    console.log("Controller Wallet: " + updatedWallet)
+    res.send("req.body : " + req.body)
+  })
+})
+
 lootRouter.delete('/deleteitem/:itemID/:playerID', (req, res) => {
   lootApi.deleteItem(req.params.itemID).then((itemID) => {
     //res.send(itemID)
