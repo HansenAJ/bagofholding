@@ -73,7 +73,7 @@ lootRouter.post('/addplayer', (req, res) => {
   lootApi.addPlayer(req.body).then((newPlayer) => {
     lootApi.addWallet(newPlayer).then(() => {
       //res.send(newPlayer)
-      res.redirect(`/playerpage/${newPlayer._id}`)
+      res.redirect(`/playerpage/${newPlayer._id}/${newPlayer.partyID}`)
     })
   })
 })
@@ -133,6 +133,12 @@ lootRouter.delete('/deleteitem/:itemID/:playerID', (req, res) => {
   lootApi.deleteItem(req.params.itemID).then((itemID) => {
     //res.send(itemID)
     res.redirect(`/playerpage/${req.params.playerID}`)
+  })
+})
+
+lootRouter.delete('/deleteplayer/:playerID/:partyID', (req, res) => {
+  lootApi.deletePlayer(req.params.playerID).then((partyID) => {
+    res.redirect(`/partylist/${req.params.partyID}`)
   })
 })
 

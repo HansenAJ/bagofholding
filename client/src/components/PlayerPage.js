@@ -6,6 +6,7 @@ import ItemDisplay from './ItemDisplay';
 import WealthDisplay from './WealthDisplay';
 
 
+
 export default class PlayerPage extends Component {
 
     constructor(props) {
@@ -76,6 +77,8 @@ AddItem = (data) => {
                 })
   }
 
+
+
     render() {
         let walletToPass = {...this.state.wealth}
         console.log(`Parent Wealth Plat= ${this.state.wealth.plat}`)
@@ -83,6 +86,9 @@ AddItem = (data) => {
         return (
             <div>
                 <Link to={`/homepage`}>Home</Link>
+                <form method="POST" action={`/api/deleteplayer/${this.props.match.params.playerID}/${this.props.match.params.partyID}?_method=DELETE`}>
+                    <input type="submit" value="Delete Player" />
+                </form>
                 <Link to={`/partylist/${this.props.match.params.partyID}`}>Back to Party</Link>
                 <WealthDisplay wealthSend={walletToPass} parentCallback = {this.callbackFunction}/>
                 {this.state.items.map(item => (

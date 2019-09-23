@@ -5,6 +5,8 @@ import HomePage from './components/HomePage.js'
 import PartyList from './components/PartyList.js'
 import PartyBag from './components/PartyBag.js'
 import PlayerPage from './components/PlayerPage.js'
+import Header from './components/Header.js'
+import Footer from './components/Footer.js'
 import './App.css';
 
 
@@ -12,9 +14,8 @@ class App extends Component{
   render (){
     return (
       <div className="App">
-        <h1>Here is an H1 thing in my main app page</h1>
-      
         <Router>
+        <Header />
           <Switch>
             <Route exact path ="/" component={HelloWorld}/>
             <Route exact path ="/homepage" component={HomePage}/>
@@ -22,6 +23,7 @@ class App extends Component{
             <Route path       ="/partybag/:partyID" component={PartyBag}/>
             <Route path       ="/playerpage/:playerID/:partyID" component={PlayerPage}/>
           </Switch>
+          <Footer />
         </Router>
       </div>
     );
