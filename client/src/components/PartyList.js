@@ -68,11 +68,11 @@ export default class PartyList extends Component {
 
         return (
             <div>
+                <Link to={`/homepage`}>Home</Link>
                 {/* Accessing the value of message from the state object */}
                 <p>This Is Text</p>
                 <p>ID is {this.props.match.params.partyID}</p>
                 <h1>{this.state.message}</h1>
-                {/* <h2>{this.state.partyBag}</h2> */}
                 <Link to={`/partybag/${this.props.match.params.partyID}`}>Party Loot</Link>
                 <h2>{this.state.players}</h2>
                 <form method = "POST" action={"/api/addplayer/" }>

@@ -1,5 +1,6 @@
 
 import React, { Component } from 'react'
+// import { Link } from 'react-router-dom'
 import AddItem from './AddItem';
 import ItemDisplay from './ItemDisplay';
 import WealthDisplay from './WealthDisplay';
@@ -81,6 +82,8 @@ AddItem = (data) => {
         console.log(`wallet Plat= ${walletToPass.plat}`)
         return (
             <div>
+                <Link to={`/homepage`}>Home</Link>
+                {/* <Link to={`/partylist/${this.props.match.params.partyID}`}>Back to Party</Link> */}
                 {this.state.items.map(item => (
                         <ItemDisplay item={item} playerID={this.props.match.params.playerID}/>
                 ))}
