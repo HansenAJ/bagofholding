@@ -1,6 +1,6 @@
 
 import React, { Component } from 'react'
-// import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import AddItem from './AddItem';
 import ItemDisplay from './ItemDisplay';
 import WealthDisplay from './WealthDisplay';
@@ -83,12 +83,12 @@ AddItem = (data) => {
         return (
             <div>
                 <Link to={`/homepage`}>Home</Link>
-                {/* <Link to={`/partylist/${this.props.match.params.partyID}`}>Back to Party</Link> */}
+                <Link to={`/partylist/${this.props.match.params.partyID}`}>Back to Party</Link>
+                <WealthDisplay wealthSend={walletToPass} parentCallback = {this.callbackFunction}/>
                 {this.state.items.map(item => (
                         <ItemDisplay item={item} playerID={this.props.match.params.playerID}/>
                 ))}
                 <AddItem addItem={this.AddItem} playerID={this.props.match.params.playerID}/>
-                <WealthDisplay wealthSend={walletToPass} parentCallback = {this.callbackFunction}/>
             </div>
         )
     }

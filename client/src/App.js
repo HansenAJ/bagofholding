@@ -20,7 +20,7 @@ class App extends Component{
             <Route exact path ="/homepage" component={HomePage}/>
             <Route path       ="/partylist/:partyID" component={PartyList}/>
             <Route path       ="/partybag/:partyID" component={PartyBag}/>
-            <Route path       ="/playerpage/:playerID" component={PlayerPage}/>
+            <Route path       ="/playerpage/:playerID/:partyID" component={PlayerPage}/>
           </Switch>
         </Router>
       </div>

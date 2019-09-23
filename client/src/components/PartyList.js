@@ -27,7 +27,7 @@ export default class PartyList extends Component {
                         <div>
                             <span>Picture = {data.picture}</span>
                             {/* <button href={"/getallplayers/" + data._id}>{data.name}</button> */}
-                            <form action={`/playerpage/${data._id}`}>
+                            <form action={`/playerpage/${data._id}/${this.props.match.params.partyID}`}>
                                 <input type="submit" value={data.name} />
                             </form>
                         </div>
