@@ -8,7 +8,7 @@ export default class Header extends Component {
         return(
             <div>
                 <h1>Bag Of Holding</h1>
-                <Link to={`/homepage`}>Home</Link>
+                <Link to={`/homepage`} class='linkbutton'>Home</Link>
             </div>
         )
     }

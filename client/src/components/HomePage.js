@@ -76,6 +76,7 @@ export default class HomePage extends Component {
                     <input type="text" name="name" placeholder="Murder Hobos Inc."/>
                     <label>Upload Picture</label>
                     <input type="text" name="picture" placeholder="Direct Image Path Only" />
+                    <br></br>
                     <input type="submit" value="New Party" class="button"/>
                 </form>
             </div>
