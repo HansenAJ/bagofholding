@@ -20,6 +20,6 @@ MERN + React Router - Then deployed to Heroku, link below.
    [LINK HERE](Also link here?)
    
 ## WireFrame :
-   [images/Wireframe.PNG](Wireframe)
+![Wireframe](https://github.com/HansenAJ/bagofholding/blob/master/public/images/wireframe.png)
    
   
