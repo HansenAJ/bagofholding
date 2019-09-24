@@ -85,7 +85,6 @@ AddItem = (data) => {
         // console.log(`wallet Plat= ${walletToPass.plat}`)
         return (
             <div>
-                <Link to={`/homepage`}>Home</Link>
                 <form method="POST" action={`/playerapi/deleteplayer/${this.props.match.params.playerID}/${this.props.match.params.partyID}?_method=DELETE`}>
                     <input type="submit" value="Delete Player" />
                 </form>
