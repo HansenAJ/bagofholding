@@ -44,9 +44,9 @@ export default class AddItem extends Component {
                     <label>Weight</label>
                     <input type="number" name="weight" min="0" onChange={this.inputHandler}/>
                     <label>Quantity</label>
-                    <input type="number" name="quantity" onChange={this.inputHandler}/>
+                    <input type="number" name="quantity" min="0" onChange={this.inputHandler}/>
                     <label>Value</label>
-                    <input type="number" name="value" onChange={this.inputHandler}/>
+                    <input type="number" name="value" min="0" onChange={this.inputHandler}/>
                     <label>Notes</label>
                     <input type="text" name="notes" onChange={this.inputHandler}/>
                     <label>BookRef</label>
