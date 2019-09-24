@@ -1,5 +1,6 @@
 
 import React, { Component } from 'react'
+import '../App.css'
 
 /* Step 2
  * Rename this class to reflect the component being created
@@ -49,7 +50,7 @@ export default class HomePage extends Component {
                             <span>Picture = {data.picture}</span>
                             {/* <button href={"/getallplayers/" + data._id}>{data.name}</button> */}
                             <form action={`/partylist/${data._id}`}>
-                                <input type="submit" value={data.name} />
+                                <input type="submit" value={data.name} class='button'/>
                             </form>
                             <form method="POST" action={`/partyapi/deleteparty/${data._id}?_method=DELETE`}>
                                 <input type="submit" value="Total Party Kill" />
@@ -71,7 +72,7 @@ export default class HomePage extends Component {
     */
     render() {
         return (
-            <div>
+            <div class='homecontainer'>
                 {/* Accessing the value of message from the state object */}
                 <h1>{this.state.message}</h1>
                 <h2>{this.state.parties}</h2>

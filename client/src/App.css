@@ -1,7 +1,14 @@
+body{
+  background-image: url("https://i.imgur.com/n4m8sdh.jpg");
+}
+
 .App {
   text-align: center;
-  background-image: './images/parchment.jpg';
-  background: center;
+  /* background-color: red; */
+}
+
+.button{
+  background: url("https://i.imgur.com/oEoo59M.jpg")
 }
 
 .App-logo {
@@ -23,6 +30,10 @@
 
 .App-link {
   color: #61dafb;
+}
+
+.homecontainer{
+  background-color: red;
 }
 
 @keyframes App-logo-spin {
