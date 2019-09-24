@@ -20,12 +20,12 @@ export default class PartyList extends Component {
             }).then(data => {
                 let playerList = data.map((data) => {
                     return(
-                        <div>
+                        <div class='partyDisp'>
                             <img src= {data.picture} alt="Character Image" />
                             {/* <span>Picture = {data.picture}</span> */}
                             {/* <button href={"/getallplayers/" + data._id}>{data.name}</button> */}
                             <form action={`/playerpage/${data._id}/${this.props.match.params.partyID}`}>
-                                <input type="submit" value={data.name} />
+                                <input type="submit" value={data.name} class="button"/>
                             </form>
                         </div>
                         )
@@ -43,14 +43,18 @@ export default class PartyList extends Component {
                     <img src="./images/treasurebox.png" alt="Treasure Image" />
                     <Link to={`/partybag/${this.props.match.params.partyID}`}>Party Loot</Link>
                 </div> */}
-                <h2>{this.state.players}</h2>
+                <div class="homecontainer">
+                    <div class="partycontainer">
+                        {this.state.players}
+                    </div>
+                </div>
                 <form method = "POST" action={"/playerapi/addplayer/" }>
                     <label>Player Name</label>
                     <input type="text" name="name" placeholder="Blast HardCheese"/>
                     <label>Upload Picture</label>
                     <input type="text" name="picture" placeholder="Direct Image Path Only" />
                     <input type="hidden" name="partyID" value={this.props.match.params.partyID} />
-                    <input type="submit" value="Add New Player" />
+                    <input type="submit" value="Add New Player" class="button"/>
                 </form>
             </div>
         )
