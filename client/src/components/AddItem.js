@@ -51,7 +51,8 @@ export default class AddItem extends Component {
                     <input type="text" name="notes" onChange={this.inputHandler}/>
                     <label>BookRef</label>
                     <input type="text" name="bookRef" onChange={this.inputHandler}/>
-                    <input type="submit" value="Add New Item" />
+                    <br></br>
+                    <input type="submit" value="Add New Item" class='button'/>
                 </form>
             </div>            
         )
