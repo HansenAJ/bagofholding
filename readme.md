@@ -19,4 +19,7 @@ MERN + React Router - Then deployed to Heroku, link below.
 ## Heroku Application :
    [LINK HERE](Also link here?)
    
+## WireFrame :
+   [images/Wireframe.PNG](Wireframe)
+   
   
