@@ -86,7 +86,7 @@ AddItem = (data) => {
         return (
             <div>
                 <form method="POST" action={`/playerapi/deleteplayer/${this.props.match.params.playerID}/${this.props.match.params.partyID}?_method=DELETE`}>
-                    <input type="submit" value="Delete Player" />
+                    <input type="submit" value="Delete Player" class='button'/>
                 </form>
                 <Link to={`/partylist/${this.props.match.params.partyID}`}>Back to Party</Link>
                 {/* <WealthDisplay wealthSend={this.state.wealth} parentCallback = {this.callbackFunction}/> */}

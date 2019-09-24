@@ -62,14 +62,6 @@ export default class HomePage extends Component {
             })
     }
 
-
-
-    /* Step 5
-    *  The render function manages what is shown in the browser
-    *  TODO: delete the jsx returned
-    *   and replace it with your own custom jsx template
-    *
-    */
     render() {
         return (
             <div>

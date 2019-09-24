@@ -11,13 +11,20 @@ body{
 
 .button{
   background: url("https://i.imgur.com/oEoo59M.jpg");
-  padding: o;
+  padding: 0;
   border: none;
   width: 200px;
   height: 50px;
   color: black;
   font-size: 25px;
   border-radius: 10%;
+}
+
+h1{
+  background: url("https://i.imgur.com/oEoo59M.jpg");
+  color: black;
+  border-radius: 10%;
+  font-size: 50px;
 }
 
 img{
