@@ -54,6 +54,7 @@ export default class PartyList extends Component {
                     <label>Upload Picture</label>
                     <input type="text" name="picture" placeholder="Direct Image Path Only" />
                     <input type="hidden" name="partyID" value={this.props.match.params.partyID} />
+                    <br></br>
                     <input type="submit" value="Add New Player" class="button"/>
                 </form>
             </div>
