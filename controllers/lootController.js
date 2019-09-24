@@ -51,7 +51,7 @@ lootRouter.put('/updatewallet', (req, res) => {
 lootRouter.delete('/deleteitem/:itemID/:playerID/:partyID', (req, res) => {
   lootApi.deleteItem(req.params.itemID).then((itemID) => {
     //res.send(itemID)
-    res.redirect(`/playerpage/${req.params.playerID}/${req.params.playerID}`)
+    res.redirect(`/playerpage/${req.params.playerID}/${req.params.partyID}`)
   })
 })
 

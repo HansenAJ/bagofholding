@@ -1,47 +1,97 @@
 
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
+import AddItem from './AddItem';
+import ItemDisplay from './ItemDisplay';
+import WealthDisplay from './WealthDisplay';
+
 
 
 export default class PartyBag extends Component {
 
-    state = {
-        message: 'Party Bag'
+    constructor(props) {
+        super(props);
+        this.state = {
+            message: ['Player State Message'],
+            items: [],
+            wealth: {
+                //_id: String,
+                plat: 10,
+                gold: 9,
+                elec: 8,
+                silv: 7,
+                copp: 6
+            }
+        };
     }
 
-    /* Step 4
-    * Use componentDidMount to retrieve any data to display
-    *   Here you can make calls to your local express server
-    *   or to an external API
-    *   setState can be run here as well
-    *   -REMINDER remember `setState` it is an async function
-    */
-    // componentDidMount() {
-    //     axios.get('/api/helloworld')
-    //         .then((res) => {
-    //             this.setState({message: res.data})
-    //         })
-    // }
+   
+    componentDidMount() {
+        this.getAll()
+    }
+
+AddItem = (data) => {
+    console.log("AddItem DataName: " + data.name)
+    fetch("/lootapi/additem", {
+        method: 'POST', // or 'PUT'
+        body: JSON.stringify(data), // data can be `string` or {object}!
+        headers:{
+          'Content-Type': 'application/json'
+                }
+            }).then(() => {
+                this.getAll()
+            })
+    }
+
+    getAll = () => {
+        fetch(`/lootapi/getallitems/${this.props.match.params.playerID}`)
+            .then(res => res.json())
+            .then((res) => {
+                //console.log("Item Res json = " + res)
+                this.setState( {items: res} )
+            })
+            // .then(() => {
+            //     console.log("Second Fetch Run")
+            //     fetch(`/api/getwallet/${this.props.match.params.playerID}`)
+            //     .then(resW => resW.json())
+            //     .then((resW) => {
+            //         console.log("Resafter json = ", resW)
+            //         this.setState( {wealth: resW[0]} )
+            //     })
+            // })
+    }
+
+//     callbackFunction = (childData) => {
+//         //this.setState( {wealth: childData} )
+//         //console.log("walletid is: " + this.state.wallet[0]._id)
+//         // .then((childData) => {
+//             console.log("Child Dataplat: " + childData.plat)
+//         fetch("/api/updatewallet", {
+//             method: 'PUT', // or 'PUT'
+//             body: JSON.stringify(childData), // data can be `string` or {object}!
+//             headers:{
+//               'Content-Type': 'application/json'
+//                     }
+//                 }).then(() => {
+//                     this.getAll()
+//                 })
+//   }
 
 
-    // componentDidMount() {
-    //     fetch('/api/helloworld')
-    //         .then((res) => {
-    //             this.setState({message: res.data})
-    //         })
-    // }
 
-
-    /* Step 5
-    *  The render function manages what is shown in the browser
-    *  TODO: delete the jsx returned
-    *   and replace it with your own custom jsx template
-    *
-    */
     render() {
+        let walletToPass = {...this.state.wealth}
+        // console.log(`Parent Wealth Plat=`, this.state.wealth)
+        // console.log(`wallet Plat= ${walletToPass.plat}`)
         return (
             <div>
-                {/* Accessing the value of message from the state object */}
-                <h1>{this.state.message}</h1>
+                <Link to={`/homepage`}>Home</Link>
+                <Link to={`/partylist/${this.props.match.params.partyID}`}>Back to Party</Link>
+                {/* <WealthDisplay wealthSend={this.state.wealth} parentCallback = {this.callbackFunction}/> */}
+                {this.state.items.map(item => (
+                        <ItemDisplay item={item} playerID={this.props.match.params.playerID} partyID={this.props.match.params.partyID}/>
+                ))}
+                <AddItem addItem={this.AddItem} playerID={this.props.match.params.playerID}/>
             </div>
         )
     }

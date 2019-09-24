@@ -32,17 +32,17 @@ export default class PartyList extends Component {
                     })
                 this.setState({players: playerList})
             })
-    }
+        }
 
 
     render() {
 
         return (
             <div>
-                <div>
+                {/* <div>
                     <img src="./images/treasurebox.png" alt="Treasure Image" />
                     <Link to={`/partybag/${this.props.match.params.partyID}`}>Party Loot</Link>
-                </div>
+                </div> */}
                 <h2>{this.state.players}</h2>
                 <form method = "POST" action={"/playerapi/addplayer/" }>
                     <label>Player Name</label>
