@@ -17,7 +17,10 @@ RPG Inventory Management Application.
 MERN + React Router - Then deployed to Heroku, link below.
 
 ## Heroku Application :
-   [LINK HERE](Also link here?)
+   [Bag Of Holding](https://agile-badlands-21727.herokuapp.com/homepage)
+   
+## Project Board : 
+   [Project Board](https://github.com/HansenAJ/bagofholding/projects/1)
    
 ## WireFrame :
 ![Wireframe](https://github.com/HansenAJ/bagofholding/blob/master/images/Wireframe.PNG)
@@ -25,8 +28,5 @@ MERN + React Router - Then deployed to Heroku, link below.
 ## ERD/Component Tree :
 ![ERD](https://github.com/HansenAJ/bagofholding/blob/master/images/ERD_Comp.PNG)
 
-## Project Board : 
-
-[Project Board](https://github.com/HansenAJ/bagofholding/projects/1)
    
   
