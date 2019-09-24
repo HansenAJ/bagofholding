@@ -30,7 +30,7 @@ export default class HomePage extends Component {
     // }
 
     componentDidMount() {
-        fetch('/api/helloworld')
+        fetch('/lootapi/helloworld')
             .then((res) => {
                 return res.json();
             }).then(data => {
@@ -39,7 +39,7 @@ export default class HomePage extends Component {
     }
 
       componentWillMount() {
-        fetch('/api/getallparty')
+        fetch('/partyapi/getallparty')
             .then((res) => {
                 return res.json();
             }).then(data => {
@@ -50,6 +50,9 @@ export default class HomePage extends Component {
                             {/* <button href={"/getallplayers/" + data._id}>{data.name}</button> */}
                             <form action={`/partylist/${data._id}`}>
                                 <input type="submit" value={data.name} />
+                            </form>
+                            <form method="POST" action={`/partyapi/deleteparty/${data._id}?_method=DELETE`}>
+                                <input type="submit" value="Total Party Kill" />
                             </form>
                         </div>
                         )
@@ -72,7 +75,7 @@ export default class HomePage extends Component {
                 {/* Accessing the value of message from the state object */}
                 <h1>{this.state.message}</h1>
                 <h2>{this.state.parties}</h2>
-                <form method = "POST" action="/api/addparty">
+                <form method = "POST" action="/partyapi/addparty">
                     <label>Party Name</label>
                     <input type="text" name="name" placeholder="Murder Hobos Inc."/>
                     <label>Upload Picture</label>

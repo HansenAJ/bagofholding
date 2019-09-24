@@ -21,9 +21,9 @@ export default class ItemDisplay extends Component {
                 <span>Value = {this.props.item.value}</span>
                 <span>BookRef = {this.props.item.bookRef}</span>
                 <span>Notes = {this.props.item.notes}</span>
-            <form method="POST" action={`/api/deleteitem/${this.props.item._id}/${this.props.playerID}?_method=DELETE`}>
-                <input type="submit" value="Discard Item" />
-            </form>
+                <form method="POST" action={`/lootapi/deleteitem/${this.props.item._id}/${this.props.playerID}/${this.props.partyID}?_method=DELETE`}>
+                    <input type="submit" value="Discard Item" />
+                </form>
             </div>
             )
     }

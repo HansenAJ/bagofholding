@@ -108,6 +108,7 @@ const updateItem = (updatedItem) => { return ItemCollection.findByIdAndUpdate(up
 const deleteItem = (deleteItem) => { return ItemCollection.findByIdAndDelete(deleteItem)}
 const updateWallet = (updateWallet) => {return WealthCollection.findByIdAndUpdate(updateWallet._id, updateWallet)}
 const deletePlayer = (deletePlayer) => {return PlayerCollection.findByIdAndDelete(deletePlayer)}
+const deleteParty = (deleteParty) => {return PartyCollection.findByIdAndDelete(deleteParty)}
 
 /*
 const deleteParty
@@ -125,6 +126,7 @@ module.exports = {
   addBag,
   deleteItem,
   deletePlayer,
+  deleteParty,
   getHelloWorldString,
   getAllParty,
   getSingleParty,

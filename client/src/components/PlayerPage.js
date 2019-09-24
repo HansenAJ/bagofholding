@@ -32,7 +32,7 @@ export default class PlayerPage extends Component {
 
 AddItem = (data) => {
     console.log("AddItem DataName: " + data.name)
-    fetch("/api/additem", {
+    fetch("/lootapi/additem", {
         method: 'POST', // or 'PUT'
         body: JSON.stringify(data), // data can be `string` or {object}!
         headers:{
@@ -44,7 +44,7 @@ AddItem = (data) => {
     }
 
     getAll = () => {
-        fetch(`/api/getallitems/${this.props.match.params.playerID}`)
+        fetch(`/lootapi/getallitems/${this.props.match.params.playerID}`)
             .then(res => res.json())
             .then((res) => {
                 //console.log("Item Res json = " + res)
@@ -61,38 +61,38 @@ AddItem = (data) => {
             // })
     }
 
-    callbackFunction = (childData) => {
-        //this.setState( {wealth: childData} )
-        //console.log("walletid is: " + this.state.wallet[0]._id)
-        // .then((childData) => {
-            console.log("Child Dataplat: " + childData.plat)
-        fetch("/api/updatewallet", {
-            method: 'PUT', // or 'PUT'
-            body: JSON.stringify(childData), // data can be `string` or {object}!
-            headers:{
-              'Content-Type': 'application/json'
-                    }
-                }).then(() => {
-                    this.getAll()
-                })
-  }
+//     callbackFunction = (childData) => {
+//         //this.setState( {wealth: childData} )
+//         //console.log("walletid is: " + this.state.wallet[0]._id)
+//         // .then((childData) => {
+//             console.log("Child Dataplat: " + childData.plat)
+//         fetch("/api/updatewallet", {
+//             method: 'PUT', // or 'PUT'
+//             body: JSON.stringify(childData), // data can be `string` or {object}!
+//             headers:{
+//               'Content-Type': 'application/json'
+//                     }
+//                 }).then(() => {
+//                     this.getAll()
+//                 })
+//   }
 
 
 
     render() {
         let walletToPass = {...this.state.wealth}
-        console.log(`Parent Wealth Plat=`, this.state.wealth)
-        console.log(`wallet Plat= ${walletToPass.plat}`)
+        // console.log(`Parent Wealth Plat=`, this.state.wealth)
+        // console.log(`wallet Plat= ${walletToPass.plat}`)
         return (
             <div>
                 <Link to={`/homepage`}>Home</Link>
-                <form method="POST" action={`/api/deleteplayer/${this.props.match.params.playerID}/${this.props.match.params.partyID}?_method=DELETE`}>
+                <form method="POST" action={`/playerapi/deleteplayer/${this.props.match.params.playerID}/${this.props.match.params.partyID}?_method=DELETE`}>
                     <input type="submit" value="Delete Player" />
                 </form>
                 <Link to={`/partylist/${this.props.match.params.partyID}`}>Back to Party</Link>
-                <WealthDisplay wealthSend={this.state.wealth} parentCallback = {this.callbackFunction}/>
+                {/* <WealthDisplay wealthSend={this.state.wealth} parentCallback = {this.callbackFunction}/> */}
                 {this.state.items.map(item => (
-                        <ItemDisplay item={item} playerID={this.props.match.params.playerID}/>
+                        <ItemDisplay item={item} playerID={this.props.match.params.playerID} partyID={this.props.match.params.partyID}/>
                 ))}
                 <AddItem addItem={this.AddItem} playerID={this.props.match.params.playerID}/>
             </div>

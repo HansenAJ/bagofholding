@@ -14,7 +14,7 @@ export default class PartyList extends Component {
     }
 
     componentWillMount() {
-        fetch(`/api/getallplayers/${this.props.match.params.partyID}`)
+        fetch(`/playerapi/getallplayers/${this.props.match.params.partyID}`)
             .then((res) => {
                 return res.json();
             }).then(data => {
@@ -44,7 +44,7 @@ export default class PartyList extends Component {
                     <Link to={`/partybag/${this.props.match.params.partyID}`}>Party Loot</Link>
                 </div>
                 <h2>{this.state.players}</h2>
-                <form method = "POST" action={"/api/addplayer/" }>
+                <form method = "POST" action={"/playerapi/addplayer/" }>
                     <label>Player Name</label>
                     <input type="text" name="name" placeholder="Blast HardCheese"/>
                     <label>Upload Picture</label>
