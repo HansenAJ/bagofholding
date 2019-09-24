@@ -50,15 +50,15 @@ AddItem = (data) => {
                 //console.log("Item Res json = " + res)
                 this.setState( {items: res} )
             })
-            .then(() => {
-                console.log("Second Fetch Run")
-                fetch(`/api/getwallet/${this.props.match.params.playerID}`)
-                .then(resW => resW.json())
-                .then((resW) => {
-                    //console.log("Resafter json = " + resW)
-                    this.setState( {wealth: resW[0]} )
-                })
-            })
+            // .then(() => {
+            //     console.log("Second Fetch Run")
+            //     fetch(`/api/getwallet/${this.props.match.params.playerID}`)
+            //     .then(resW => resW.json())
+            //     .then((resW) => {
+            //         console.log("Resafter json = ", resW)
+            //         this.setState( {wealth: resW[0]} )
+            //     })
+            // })
     }
 
     callbackFunction = (childData) => {
@@ -81,7 +81,7 @@ AddItem = (data) => {
 
     render() {
         let walletToPass = {...this.state.wealth}
-        console.log(`Parent Wealth Plat= ${this.state.wealth.plat}`)
+        console.log(`Parent Wealth Plat=`, this.state.wealth)
         console.log(`wallet Plat= ${walletToPass.plat}`)
         return (
             <div>
@@ -90,7 +90,7 @@ AddItem = (data) => {
                     <input type="submit" value="Delete Player" />
                 </form>
                 <Link to={`/partylist/${this.props.match.params.partyID}`}>Back to Party</Link>
-                <WealthDisplay wealthSend={walletToPass} parentCallback = {this.callbackFunction}/>
+                <WealthDisplay wealthSend={this.state.wealth} parentCallback = {this.callbackFunction}/>
                 {this.state.items.map(item => (
                         <ItemDisplay item={item} playerID={this.props.match.params.playerID}/>
                 ))}
