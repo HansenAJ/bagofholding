@@ -26,7 +26,7 @@ MERN + React Router - Then deployed to Heroku, link below.
 ![Wireframe](https://github.com/HansenAJ/bagofholding/blob/master/images/Wireframe.PNG)
 
 ## ERD/Component Tree :
-![ERD](https://github.com/HansenAJ/bagofholding/blob/master/images/ERD_Comp.PNG)
+![ERD](https://github.com/HansenAJ/bagofholding/blob/master/images/Screen%20Shot%202019-09-24%20at%209.56.42%20AM.png)
 
    
   
