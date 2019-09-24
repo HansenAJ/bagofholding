@@ -1,31 +1,22 @@
-# mern-template-project
+## Bag of Holding - 
+RPG Inventory Management Application.
 
-# Setup A New Project From This Template
+## Problem : 
+   In long-running RPG games it can be troublesome to track a player's inventory on pen and paper. It is also difficult for a game runner to keep up with what items each individual character has at any given time.
 
-If you are starting a new project do the following:
+## Solution : 
+   This app provides a single point of reference for storing a list of items, sorted by each character, and which party they belong to, allowing for fast reference.
 
-1. copy/download this directory to where you new project is located and rename
-   it to the name of your project.
-1. change your directory (`cd`) into the copied project template
-1. `npm install`
-1. `npm run dev`
-1. Open a new browser window and navigate to the URL http://localhost:3000/
-    here you should see `hello world` displayed after page load
-    updates should show up here automatically
-1. see the `client/src` `readme.md` file for more information on the react project
+## Capabilities : 
+   Users can create a groups of parties: assign names and pictures to each party and member, add and delete items with reference to weight, value, quantity, and a reference to which book these items are detailed in.
 
-# Setup A New Project Without This Template
+## Future Release plans : 
+   Wealth Tracker. Weight Management system. Party-Loot bag. Ability to swap items between characters.
 
-If you want to start a project without using this template directory do the
-following:
+## Technologies used : 
+MERN + React Router - Then deployed to Heroku, link below.
 
-
-1. `mkdir <project-name>`
-1. `cd <project-name>`
-1. `echo "# <project-name>" > readme.md`
-1. `git init`
-1. `git add readme.md `
-1. `git commit -m "init repo with readme.md"`
-1. `npm init`
-1. `mkdir models views controllers`
-1. `touch ./server.js`
+## Heroku Application :
+   [LINK HERE](Also link here?)
+   
+  
